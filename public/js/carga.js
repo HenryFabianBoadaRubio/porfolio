@@ -6,7 +6,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Set background color
-renderer.setClearColor('#293133'); // Changed to black for contrast
+renderer.setClearColor('#03071e'); // Changed to black for contrast
 
 // Create a sphere with interactive shader
 // const geometry = new THREE.SphereGeometry(2.5, 80, 80); 
@@ -151,33 +151,46 @@ document.addEventListener('DOMContentLoaded', () => {
 //         });
 //     });
 // });
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
-    const sidebar = document.getElementById("mySidebar");
-    const content = document.getElementById("main");
-    const menuItems = document.querySelectorAll('.sidebar a');
-    const themeSwitch = document.getElementById('themeSwitch');
+    const menuToggle = document.getElementById('menu-toggle');
+    const overlay = document.getElementById('overlay');
+    const menu = document.querySelector('.menu');
+    const mainContent = document.querySelector('.main-container'); // Selecciona el contenedor principal
 
-    function toggleSidebar() {
-        sidebar.classList.toggle("active");
-        // content.classList.toggle("active");
-    }
-
-    menuItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-
-            menuItems.forEach(i => i.classList.remove('active'));
-            item.classList.add('active');
-            const section = item.getAttribute('data-section');
-            console.log(`Navegando a la sección: ${section}`);
-            // Aquí puedes agregar la lógica para cambiar de sección
-            toggleSidebar();
-        });
+    menuToggle.addEventListener('change', () => {
+        if (menuToggle.checked) {
+            overlay.classList.add('show');
+            menu.classList.add('show');
+            mainContent.classList.add('blur'); // Aplica el efecto de desenfoque
+        } else {
+            overlay.classList.remove('show');
+            menu.classList.remove('show');
+            mainContent.classList.remove('blur'); // Elimina el efecto de desenfoque
+        }
     });
 
-   
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            menuToggle.checked = false;
+            overlay.classList.remove('show');
+            menu.classList.remove('show');
+            mainContent.classList.remove('blur'); // Elimina el efecto de desenfoque
+        }
+    });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const menuLinks = document.querySelectorAll('.menu a');
 
-
-
-
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});

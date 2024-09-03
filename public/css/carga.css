@@ -41,7 +41,7 @@ canvas {
     height: 10rem;
     position: relative;
     margin-top: 25rem;
-    margin-left: 6.5rem;
+   
     /* border: 1px solid red; */
     z-index: 1;
 }
@@ -51,7 +51,7 @@ canvas {
     color: white;
     flex-direction: column;
  
-    left: 0;
+    /* left: 0; */
     bottom: 1rem;  
     z-index: 1;
 }
@@ -443,27 +443,132 @@ h4:hover {
 
 .descripcion__personal{
     display: flex;
-    width: 30%;
-    height: 100%;
+    width: 50%;
+    height: 60%;
     /* border: 1px solid red; */
-    margin-left: 10rem;
-    margin-top: 5rem;
+    margin-left: 5rem;
+    /* margin-top: 2rem; */
     flex-direction: column;
+   margin-top: -5rem;
 }
-.descripcion__personal p{
+.texto__acerca p{
     font-size: 1.5rem;
     font-weight:300;
     line-height: 2rem;
+    margin-top: 1.5rem;
+    width: 50%;
+    margin-left:5%;
+    text-align: justify;
 }
 
+.descripcion__personal h6{
+    margin-top: 1.1rem;
+    font-size: 3rem;
+    color: #df8005;
+    /* margin-bottom: 1rem; */
+}
+.titulo__Descripcion{
+    display: flex;
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 15%;
+}
 
-
-
-
+/* From Uiverse.io by mobinkakei */ 
+.wrapper {
+    width: 200px;
+    height: 60px;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .circles {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50%;
+    background-color:#df8005;;
+    left: 15%;
+    transform-origin: 50%;
+    animation: circle7124 .5s alternate infinite ease;
+  }
+  
+  @keyframes circle7124 {
+    0% {
+      top: 60px;
+      height: 5px;
+      border-radius: 50px 50px 25px 25px;
+      transform: scaleX(1.7);
+    }
+  
+    40% {
+      height: 20px;
+      border-radius: 50%;
+      transform: scaleX(1);
+    }
+  
+    100% {
+      top: 0%;
+    }
+  }
+  
+  .circles:nth-child(2) {
+    left: 45%;
+    animation-delay: .2s;
+  }
+  
+  .circles:nth-child(3) {
+    left: auto;
+    right: 15%;
+    animation-delay: .3s;
+  }
+  
+  .shadow {
+    width: 20px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 62px;
+    transform-origin: 50%;
+    z-index: -1;
+    left: 15%;
+    filter: blur(1px);
+    animation: shadow046 .5s alternate infinite ease;
+  }
+  
+  @keyframes shadow046 {
+    0% {
+      transform: scaleX(1.5);
+    }
+  
+    40% {
+      transform: scaleX(1);
+      opacity: .7;
+    }
+  
+    100% {
+      transform: scaleX(.2);
+      opacity: .4;
+    }
+  }
+  
+  .shadow:nth-child(4) {
+    left: 45%;
+    animation-delay: .2s
+  }
+  
+  .shadow:nth-child(5) {
+    left: auto;
+    right: 15%;
+    animation-delay: .3s;
+  }
+  
 
 
 .foto__perfil{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
 
@@ -471,11 +576,14 @@ h4:hover {
     height: 60%;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    border: 5px solid transparent;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    /* border-radius: 50%; */
+    /* border: 5px solid transparent; */
     margin-left: 15rem;
     transition: transform 0.5s ease, border 0.5s ease;
+    border-radius: 1rem;
+    margin-top: 3rem;
+
 }
 
 
@@ -483,28 +591,140 @@ h4:hover {
     
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    transform: translateZ(0);
-    transition: transform 0.5s ease;
+    /* object-fit: cover; */
+    border-radius: 1rem;
+    
 }
 
-.foto__perfil:hover img{
-    transform: translateY(-20px);
-}
+
 .foto__perfil:hover {
+    border-radius: 1.1rem;
+
     border-color: #f09143; /* Highlight the border when hovered */
-    box-shadow: 0 0 20px rgba(240, 178, 85, 0.8), 0 0 40px rgba(175, 66, 97, 0.6);
+    box-shadow: 0 0 20px #df8005, 0 0 40px rgba(175, 66, 97, 0.6);
 }
 
 
 
+.menu-container {
+    position: fixed;
+    top: 15px;
+    /* right: 10px; */
+    left: 10px;
+    z-index: 1000;
+}
+.hamburger {
+    cursor: pointer;
+}
+.hamburger input {
+    display: none;
+}
+.hamburger svg {
+    height: 3em;
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line {
+    
+    fill: none;
+    stroke: #f8f6f6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line-top-bottom {
+    stroke-dasharray: 12 63;
+}
+.hamburger input:checked + svg {
+    transform: rotate(-45deg);
+}
+.hamburger input:checked + svg .line-top-bottom {
+    stroke-dasharray: 20 300;
+    stroke-dashoffset: -32.42;
+}
+.overlay {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.808);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    transition: top 0.5s ease-out;
+    z-index: 1;
+}
+.overlay.show {
+    top: 0;
+    animation: slide-down 0.5s ease-out;
+}
+@keyframes slide-down {
+    from { top: -100%; }
+    to { top: 0; }
+}
+.menu {
+    /* background: rgba(255, 255, 255, 0.781); */
+    /* border-radius: 8px; */
+    width: 30%;
+    /* max-width: 400px; */
+    padding: 20px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+    position: relative;
+    top: -100%;
+    transition: top 0.3s ease-in-out;
+    /* border: 1px solid red; */
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.menu.show {
+    top: 20px;
+}
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: white;
+
+    font-size: 22px;
+    margin: 15px 0;
+}
+.menu .icon {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.blur {
+    filter: blur(5px); /* Aplica el efecto de desenfoque */
+}
 
 
+.menu a .icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
 
-
-
-
+.menu a.active .icon {
+    color: #e74c3c; /* Cambia el color del icono al estar activo */
+    transform: rotate(20deg); /* Añade un pequeño giro */
+}
+.menu a.active {
+    text-shadow: 0 0 10px rgba(250, 124, 14, 0.849);
+}
+.menu a.active {
+    text-shadow: 
+        0 0 5px rgba(250, 124, 14, 0.849),  /* Primera capa de brillo */
+        0 0 10px rgba(250, 124, 14, 0.849),  /* Segunda capa de brillo */
+        0 0 20px rgba(0, 123, 255, 0.7),  /* Tercera capa de brillo */
+        0 0 30px rgba(0, 123, 255, 0.7),  /* Cuarta capa de brillo */
+        0 0 40px rgba(250, 124, 14, 0.849),    /* Quinta capa de brillo */
+        0 0 50px rgba(250, 124, 14, 0.849),    /* Sexta capa de brillo */
+        0 0 60px rgba(250, 124, 14, 0.849);    /* Séptima capa de brillo */
+    color: #00bfff; /* Color del texto para que el brillo resalte */
+}
 
 
 
