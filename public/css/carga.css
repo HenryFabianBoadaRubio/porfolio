@@ -6,19 +6,25 @@
     box-sizing: border-box;
 }/* style.css */
 body {
-    width: 100%;
-    height: 100vh;
+    
     margin: 0;
-    overflow: hidden; /* Prevents scrollbars */
     font-family: "Roboto", sans-serif;
     z-index: 1;
+    overflow-x: hidden;
 }
 main{
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 canvas {
-    display: block;
+    position: absolute;
+    top: 0;
+
+}
+.contenedor__primera__vista{
+    width: 100%;
+    height: 100vh;
 }
 .esfera{
     display: flex;
@@ -35,6 +41,7 @@ canvas {
  
     left: 5rem;
     bottom: 13rem;
+    z-index: 1;
 }
 
 .contenedor__principal h1{
@@ -416,4 +423,47 @@ h4:hover {
 
 
 
+.contenedor__Segunda__vista {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    /* background-color: #293133; */
+   
+}
+.contenedor__mision{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    flex-direction: row;
+    border: 1px solid red;
+}
+.mision{
+    width: 50%;
+    height: 100%;
+    border: 1px solid red;
 
+}
+.imagen__superior{
+    width: 50%;
+    height: 100%;
+    border: 1px solid red;
+}
+.contenedor__vision{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    flex-direction: row;
+    border: 1px solid red;
+}
+
+.vision{
+    width: 50%;
+    height: 100%;
+    border: 1px solid red;
+}
+.imagen__inferior{
+    width: 50%;
+    height: 100%;
+    border: 1px solid red;
+}
