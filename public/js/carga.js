@@ -11,7 +11,7 @@ renderer.setClearColor('#293133'); // Changed to black for contrast
 // Create a sphere with interactive shader
 // const geometry = new THREE.SphereGeometry(2.5, 80, 80); 
 // const geometry = new THREE.TorusKnotGeometry(2.5, 0.5, 100, 16);
-const geometry = new THREE.TorusGeometry(3, 0.5, 16, 100);
+const geometry = new THREE.TorusGeometry(3, 0.9, 26, 80);
 
 
 
@@ -72,7 +72,7 @@ const sphere = new THREE.Mesh(geometry, material);
 sphere.scale.set(1, 1, 1); // Scale the sphere
 scene.add(sphere);
 // Move the sphere to the right
-sphere.position.set(6, 0, 0); // X, Y, Z position
+sphere.position.set(8.5, 0, 0); // X, Y, Z position
 // Set camera position
 camera.position.z = 7; // Adjusted position to accommodate larger sphere
 
