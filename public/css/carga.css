@@ -17,6 +17,8 @@ main{
     flex-direction: column;
     min-height: 100vh;
     background-color: #293133;
+    font-family: "Roboto", sans-serif;
+
 }
 canvas {
     position: absolute;
@@ -428,9 +430,85 @@ h4:hover {
 }
 
 
+/*VISTA PERFIL G4LIFE*/
+.contenedor__vista__perfil{
+    display: flex;
+    width: 100%;
+    height: 120vh;
+    flex-direction: row;
+    margin-top: 14rem;
+    /* border: 1px solid red; */
+
+}
+
+.descripcion__personal{
+    display: flex;
+    width: 30%;
+    height: 100%;
+    /* border: 1px solid red; */
+    margin-left: 10rem;
+    margin-top: 5rem;
+    flex-direction: column;
+}
+.descripcion__personal p{
+    font-size: 1.5rem;
+    font-weight:300;
+    line-height: 2rem;
+}
 
 
 
+
+
+
+
+.foto__perfil{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+
+    width: 25%;
+    height: 60%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    border: 5px solid transparent;
+    margin-left: 15rem;
+    transition: transform 0.5s ease, border 0.5s ease;
+}
+
+
+.foto__perfil img{
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transform: translateZ(0);
+    transition: transform 0.5s ease;
+}
+
+.foto__perfil:hover img{
+    transform: translateY(-20px);
+}
+.foto__perfil:hover {
+    border-color: #f09143; /* Highlight the border when hovered */
+    box-shadow: 0 0 20px rgba(240, 178, 85, 0.8), 0 0 40px rgba(175, 66, 97, 0.6);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*SEGUNDA VISTA VISION Y MISION G4LIFE*/
 .contenedor__Segunda__vista {
     display: flex;
     width: 100%;
