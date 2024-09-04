@@ -15,7 +15,7 @@ const textureLoader = new THREE.TextureLoader();
 // Create a sphere with interactive shader
 // const geometry = new THREE.SphereGeometry(2.5, 80, 80); 
 // const geometry = new THREE.TorusKnotGeometry(2.5, 0.5, 100, 16);
-const geometry = new THREE.TorusGeometry(3, 0.9, 26, 80);
+const geometry = new THREE.TorusGeometry(4, 0.9, 76, 80);
 
 
 
@@ -62,7 +62,7 @@ const material = new THREE.ShaderMaterial({
             
             // Add a subtle glow effect
             float glow = max(0.0, 1.0 - length(vPosition) * 0.1);
-            vec3 glowColor = vec3(1.0, 0.8, 0.3) * glow; // Soft orange glow
+            vec3 glowColor =vec3(1.0, 0.3, 0.0);
             
             gl_FragColor = vec4(color + glowColor, 1.0);
         }
