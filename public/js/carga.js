@@ -7,7 +7,11 @@ document.body.appendChild(renderer.domElement);
 
 // Set background color
 renderer.setClearColor('#03071e'); // Changed to black for contrast
+const textureLoader = new THREE.TextureLoader();
+const backgroundTexture = textureLoader.load('https://freerangestock.com/sample/37388/space-background.jpg');
 
+// Set the texture as the background of the scene
+scene.background = backgroundTexture;
 // Create a sphere with interactive shader
 // const geometry = new THREE.SphereGeometry(2.5, 80, 80); 
 // const geometry = new THREE.TorusKnotGeometry(2.5, 0.5, 100, 16);
@@ -195,6 +199,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+window.addEventListener('scroll', function() {
+    const section = document.querySelector('.contenedor__vista__perfil');
+    const texto = document.querySelector('.texto__acerca p');
+    
+    const sectionPosition = section.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+
+    if(sectionPosition < screenPosition) {
+        texto.classList.add('visible');
+    }
+});
 
 
 /*VISTA DE SKILLS*/

@@ -27,7 +27,7 @@
     <div id="overlay" class="overlay">
         <nav class="menu">
             <a href="#" data-section="inicio"><span class="link-text">Inicio</span></a>
-            <a href="#" data-section="perfil"><span class="link-text">Perfil</span></a>
+            <a href="#seccion1" data-section="perfil"><span class="link-text">Perfil</span></a>
             <a href="../storage/hojaDeVida.pdf" data-section="hoja-de-vida"><span class="link-text">Hoja de Vida</span></a>
             <a href="#" data-section="mision-vision"><span class="link-text">Misión y Visión</span></a>
             <!-- <a href="#" data-section="objetivo-profesional"><i class="icon fas fa-tasks"></i><span class="link-text">Objetivo Profesional</span></a> -->
@@ -47,16 +47,8 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
            
 
-
-
-
-
-
-
-
-
             <section class="contenedor__datos">
-                <div  class="contenedor__principal">
+                <div id="seccion1" class="contenedor__principal">
                     <h4> < h1 > </h4>
                     <h4>|</h4>
                     <h4>|</h4>
@@ -74,42 +66,36 @@
                 
     
             </section>
+            <div class="scroll-indicator">
+                <span>&#x2193;</span> 
+            </div>
         </div>
         
   
        
         <section class="contenedor__vista__perfil">
-            <div class="foto__perfil">
-                <!-- <img src="../storage/colorH.jpg" alt=""> -->
+            <div id="1" class="foto__perfil">
                 <img src="../storage/colorH.jpg" alt="">
             </div>
-            
+        
             <div class="descripcion__personal">
-               <div class="titulo__Descripcion">
-                <h6>Acerca de Mí</h6>
-
-                   <div class="wrapper">
-                       <div class="circles"></div>
-                       <div class="circles"></div>
-                       <div class="circles"></div>
-                       <div class="shadow"></div>
-                       <div class="shadow"></div>
-                       <div class="shadow"></div>
-                   </div>
-
-               </div>
-               <div class="texto__acerca">
-                <!-- <p>Desarrollador Backend, con amplias capacidades para crear soluciones eficientes y escalables. Mi objetivo profesional es utilizar mi experiencia en múltiples tecnologías y lenguajes de programación para abordar desafíos complejos y ofrecer soluciones innovadoras. Capacitado para trabajar en equipo, mantener una comunicación efectiva y fomentar el autoaprendizaje.</p> -->
-                <p>Desarrollador Backend orientado a la creación de soluciones eficientes y tecnológicamente avanzadas. Mi objetivo profesional es aportar mi experiencia en el diseño y desarrollo de sistemas escalables, enfrentando desafíos tecnológicos con creatividad y precisión. Comprometido con el trabajo en equipo y la mejora continua, busco generar un impacto positivo mediante la innovación y el aprendizaje continuo.</p>
-
-                   <!-- <p>Desarrollador Backend, con amplias capacidades para crear soluciones eficientes y escalables. Con una amplia experiencia en múltiples tecnologías y lenguajes de programación, capacitado para abordar desafíos complejos y crear soluciones innovadoras, partiendo del trabajo en equipo, comunicación efectiva y autoaprendizaje</p> -->
-               </div>
-                <!-- <p>Desarrollador de software con formación en tecnología eléctrica, destacado por mi capacidad para integrar conocimientos técnicos y resolver problemas complejos. Mi experiencia en desarrollo web y en gestión de proyectos refleja un enfoque creativo y riguroso. -->
-                    <!-- Me destaco en el trabajo en equipo y en el liderazgo, con habilidades para motivar y coordinar a los miembros del equipo, además de una sólida capacidad organizativa. Busco continuamente aplicar para aplicar y expandir mis habilidades socioemocionales y técnicas, creando soluciones innovadoras que optimicen el rendimiento digital.
-                   </p> -->
+                <div class="titulo__Descripcion">
+                    <h6>Acerca de Mí</h6>
+                    <div class="wrapper">
+                        <div class="circles"></div>
+                        <div class="circles"></div>
+                        <div class="circles"></div>
+                        <div class="shadow"></div>
+                        <div class="shadow"></div>
+                        <div class="shadow"></div>
+                    </div>
                 </div>
-            
+                <div class="texto__acerca">
+                    <p>Desarrollador Backend orientado a la creación de soluciones eficientes y tecnológicamente avanzadas. Mi objetivo profesional es aportar mi experiencia en el diseño y desarrollo de sistemas escalables, enfrentando desafíos tecnológicos con creatividad y precisión. Comprometido con el trabajo en equipo y la mejora continua, busco generar un impacto positivo mediante la innovación y el aprendizaje continuo.</p>
+                </div>
+            </div>
         </section>
+        
 
         <section >
             <div class="contenedor__Segunda__vista">
@@ -126,8 +112,8 @@
                          
                             <div class="card">
                             <div class="content">
-                                <div class="back">
-                                <div class="back-content">
+                                <div class="frontt">
+                                <div class="front-content">
                                     <svg stroke="#ffffff" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" height="50px" width="50px" fill="#ffffff">
     
                                     <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
@@ -144,7 +130,7 @@
                                     <strong>Mision</strong>
                                 </div>
                                 </div>
-                                <div class="front">
+                                <div class="back">
                                 
                                 <div class="img">
                                     <div class="circle">
@@ -155,7 +141,7 @@
                                     </div>
                                 </div>
     
-                                <div class="front-content">
+                                <div class="back-content">
                                     <small class="badge">Mision</small>
                                     <div class="description">
                                     <div class="title">
@@ -182,8 +168,8 @@
                          
                                 <div class="card">
                                 <div class="content">
-                                    <div class="back">
-                                    <div class="back-content">
+                                    <div class="frontt">
+                                    <div class="front-content">
                                         <svg stroke="#ffffff" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" height="50px" width="50px" fill="#ffffff">
         
                                         <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
@@ -200,7 +186,7 @@
                                         <strong>Vision</strong>
                                     </div>
                                     </div>
-                                    <div class="front">
+                                    <div class="back">
                                     
                                     <div class="img">
                                         <div class="circle">
@@ -211,7 +197,7 @@
                                         </div>
                                     </div>
         
-                                    <div class="front-content">
+                                    <div class="back-content">
                                         <small class="badge">Vision</small>
                                         <div class="description">
                                         <div class="title">
@@ -348,6 +334,44 @@
 
             </div>
         </section>
+
+
+
+            <section class="contacto">
+                <div class="contenedor">
+                    <h5 class="titulo">Contáctame</h5>
+                    <div class="contenido">
+                        <div class="info-contacto">
+                            <h5>Información de Contacto</h5>
+                            <p>Estoy disponible para colaborar en proyectos interesantes o para resolver cualquier duda que tengas. ¡No dudes en contactarme!</p>
+                            <ul>
+                                <li><i class="fas fa-envelope"></i> <a href="donhammer123@gmail.com">donhammer123@gmail.com</a></li>
+                                <li><i class="fas fa-phone"></i> +57 300 442 1985</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Bucaramanga, Colombia</li>
+                            </ul>
+                        </div>
+                        <div class="formulario-contacto">
+                            <h5>Envíame un mensaje</h5>
+                            <form action="#" method="post">
+                                <div class="campo">
+                                    <input type="text" name="nombre" required>
+                                    <label>Nombre</label>
+                                </div>
+                                <div class="campo">
+                                    <input type="email" name="email" required>
+                                    <label>Email</label>
+                                </div>
+                                <div class="campo">
+                                    <textarea name="mensaje" required></textarea>
+                                    <label>Mensaje</label>
+                                </div>
+                                <button type="submit" class="boton-enviar">Enviar Mensaje</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
     </main>
     <script src="../js/carga.js"></script>
 </body>
