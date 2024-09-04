@@ -4,6 +4,8 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        /* background-color: black; */
+
     }/* style.css */
     body {
         
@@ -11,14 +13,17 @@
         font-family: "Roboto", sans-serif;
         z-index: 1;
         overflow-x: hidden;
+        /* background-color: black; */
+
     }
     main{
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        background-color: #293133;
+        /* background-color: #293133; */
         font-family: "Roboto", sans-serif;
-        background-color: #03071e;
+        /* background-color: #03071e; */
+        background-color: black;
 
     }
     canvas {
@@ -454,7 +459,7 @@
     .contenedor__vista__perfil {
         display: flex;
         width: 100%;
-        height: 120vh;
+        height: 110vh;
         flex-direction: row;
         margin-top: 14rem;
         background-image: url();
@@ -465,6 +470,10 @@
         opacity: 0;
         transform: translateY(30px);
         animation: fadeInUp 1.5s ease forwards;
+        /* background-image: url(https://images.unsplash.com/photo-1536834489155-cc2b1f008066?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); */
+        background-color:#000000; 
+        /* border:1px solid red; */
+
     }
     
     @keyframes fadeInUp {
@@ -476,7 +485,7 @@
     
     .descripcion__personal {
         display: flex;
-        width: 50%;
+        width: 30%;
         height: 60%;
         margin-left: 5rem;
         flex-direction: column;
@@ -485,8 +494,18 @@
         opacity: 0;
         transform: translateX(-30px);
         animation: slideInLeft 1s ease forwards 0.5s;
+        background-color: #33333377; 
+  
+     
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        /* border: 1px solid rgb(255, 238, 0); */
     }
-    
+    .descripcion__personal:hover {
+        border-radius: 1.1rem;
+        /* border-color: #f09143; */
+        box-shadow: 0 0 20px #df8005, 0 0 40px rgba(175, 66, 97, 0.6);
+    }
     @keyframes slideInLeft {
         to {
             opacity: 1;
@@ -498,8 +517,8 @@
         font-size: 1.5rem;
         font-weight: 300;
         line-height: 2rem;
-        margin-top: 1.5rem;
-        width: 55%;
+        margin-top: 11%;
+        width: 80%;
         margin-left: 10%;
         text-align: justify;
         opacity: 0;
@@ -528,9 +547,11 @@
     
     .titulo__Descripcion {
         display: flex;
-        width: 80%;
+        width: 90%;
         height: 15%;
-        margin-left: 4rem;
+        margin-left: 8%;
+        margin-top: 5%;
+        /* border: 1px solid red; */
     }
     
     .wrapper {
@@ -637,7 +658,7 @@
         display: flex;
         justify-content: center;
         width: 27%;
-        height: 60%;
+        height: 65%;
         overflow: hidden;
         position: relative;
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
@@ -645,9 +666,12 @@
         transition: transform 0.5s ease, border 0.5s ease;
         border-radius: 1rem;
         margin-top: 3rem;
+        margin-left: 20%;
         opacity: 0;
         transform: translateX(30px);
         animation: fadeInRight 1s ease forwards 0.5s;
+        /* border: 1px solid red; */
+
     }
     
     @keyframes fadeInRight {
@@ -802,8 +826,8 @@
     .contenedor__Segunda__vista {
         display: flex;
         width: 100%;
-        height: 120vh;
-        background-color: #293133;
+        height: 100vh;
+        background-color: #0e0300;
         margin-top: 3rem;
         flex-direction: column;
         /* flex-direction: column; */
@@ -815,18 +839,24 @@
         width: 100%;
         height: 100%;
         flex-direction: row;
-        /* border: 1px solid red; */
+        border: 1px solid red;
+        background-color: rgba(151, 141, 141, 0.699);
     }
     .contenedor__mision{
         display: flex;
         width: 100%;
         height: 100%;
         flex-direction: row;
-        /* border: 1px solid red; */
+        border: 1px solid red;
+        align-items: center;
+        justify-content: center;
     }
     .mision{
+        display: flex;
         width: 100%;
         height: 100%;
+        /* border: 1px solid red; */
+        align-items: center;
         /* border: 1px solid rgb(251, 255, 0); */
 
     }
@@ -840,12 +870,16 @@
         width: 100%;
         height: 100%;
         flex-direction: row;
+        align-items: center;
         /* border: 1px solid red; */
     }
 
     .vision{
+        display: flex;
         width: 100%;
         height: 100%;
+        /* border: 1px solid red; */
+        align-items: center;
         /* border: 1px solid rgb(102, 255, 0); */
     }
 
@@ -853,11 +887,15 @@
     /*cards*/
     /* From Uiverse.io by ElSombrero2 */ 
     .card {
-        margin-top:  4rem;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        /* margin-top:  4rem; */
         margin-left: 5rem;
         overflow: visible;
         width: 65%;
-        height: 30rem;
+        height: 60%;
+        /* border: 1px solid yellow; */
     }
     
     .content {
@@ -993,6 +1031,8 @@
         /* border: 1px solid rgb(217, 255, 0); */
         margin-top:0.3rem;
         width: 100%;
+        font-size: 1.5rem;
+        font-weight: 300;
     }
 
     .title svg{
@@ -1023,15 +1063,7 @@
         /* border: 1px solid red; */
     }
     
-    #bottom {
-        background-color: #ff8866;
-        left: 50px;
-        top: 0px;
-        width: 150px;
-        height: 150px;
-        animation-delay: -800ms;
-    }
-    
+  
     #right {
         background-color: #ff2233;
         left: 160px;
@@ -1066,6 +1098,8 @@
         /* font-size: 4.3rem; */
         /* margin: 0; */
         padding: 10px;
+        background-color: black;
+
         /* border: 1px solid red; */
         
     }
@@ -1091,6 +1125,8 @@
         height: 120vh;
         margin: 0;
         background-color: #03071e;
+        background-color: black;
+
         /* overflow: hidden; */
 
     }
@@ -1219,16 +1255,19 @@
         /* margin: 0; */
         background-color: #03071e;
         flex-direction: column;
+        background-color: black;
         
         /* overflow: hidden; */
     }
     .titulo__servicios__Dados{
         display: flex;
         width: 100%;
-        height: 3rem;
+        height: 4rem;
         justify-content: center;
         align-items: center;
+        background-color: #0e0300;;
         /* border: 1px solid red; */
+        margin-top: -2%;
     }
     .carousel-container {
         position: relative;
@@ -1236,6 +1275,7 @@
         margin: auto;
         overflow: hidden;
         border-radius: 10px;
+        
     }
 
     .carousel {
@@ -1303,6 +1343,7 @@
     flex-direction: row;
     /* border: 1px solid red; */
     align-items: center;
+    background-color: black;
     
 }
 
@@ -1383,11 +1424,15 @@
     background-color: #f8f9fa;
     padding: 50px 0;
     font-family: 'Poppins', sans-serif;
+    background-color: black;
+
 }
 
 .contenedor {
     width: 85%;
     margin: 0 auto;
+    /* background-color: black; */
+
 }
 
 .titulo {
