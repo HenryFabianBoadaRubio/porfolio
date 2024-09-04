@@ -194,3 +194,95 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+
+/*VISTA DE SKILLS*/
+const skills = [
+    { name: 'HTML', icon: '../storage/html.webp', description: 'HTML es el lenguaje de marcado estándar para crear páginas web.' },
+    { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', description: 'CSS es el lenguaje utilizado para describir la presentación de un documento escrito en HTML.' },
+    { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', description: 'JavaScript es un lenguaje de programación que permite crear contenido dinámico en la web.' }, 
+    { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+    { name: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+    { name: 'npm', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg' },
+    { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+    { name: 'Canva', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg' },
+    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+    { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+    { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+    { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+    { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+    { name: 'Express', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' }
+];
+
+const container = document.getElementById('skills-container');
+const containerRect = container.getBoundingClientRect();
+const infoCard = document.getElementById('info-card');
+const infoTitle = document.getElementById('info-title');
+const infoDescription = document.getElementById('info-description');
+const closeBtn = document.getElementById('close-btn');
+
+skills.forEach(skill => {
+    const skillElement = document.createElement('div');
+    skillElement.className = 'skill-cube';
+
+    // Añadir las 6 caras del cubo
+    const faces = ['front', 'back', 'right', 'left', 'top', 'bottom'];
+    faces.forEach(face => {
+        const faceElement = document.createElement('div');
+        faceElement.className = `face ${face}`;
+        if (face === 'front') {
+            const img = document.createElement('img');
+            img.src = skill.icon;
+            img.alt = skill.name;
+            faceElement.appendChild(img);
+        } else {
+            faceElement.textContent = skill.name;
+        }
+        skillElement.appendChild(faceElement);
+    });
+
+    // Posición inicial aleatoria
+    const maxX = containerRect.width - 100;
+    const maxY = containerRect.height - 100;
+    let x = Math.random() * maxX;
+    let y = Math.random() * maxY;
+
+    skillElement.style.left = `${x}px`;
+    skillElement.style.top = `${y}px`;
+    
+    // Añadir el evento click para mostrar la tarjeta de información
+    skillElement.addEventListener('click', () => {
+        infoTitle.textContent = skill.name;
+        infoDescription.textContent = skill.description;
+        infoCard.style.display = 'block'; 
+    });
+
+    container.appendChild(skillElement);
+
+    // Movimiento aleatorio
+    let dx = (Math.random() - 0.5) * 2;
+    let dy = (Math.random() - 0.5) * 2;
+
+    function animate() {
+        x += dx;
+        y += dy;
+
+        if (x < 0 || x > maxX) dx = -dx;
+        if (y < 0 || y > maxY) dy = -dy;
+
+        skillElement.style.left = `${x}px`;
+        skillElement.style.top = `${y}px`;
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+});
+
+// Cerrar la tarjeta de información
+closeBtn.addEventListener('click', () => {
+    infoCard.style.display = 'none';
+});

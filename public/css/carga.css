@@ -457,7 +457,7 @@ h4:hover {
     line-height: 2rem;
     margin-top: 1.5rem;
     width: 50%;
-    margin-left:5%;
+    margin-left: 10%;
     text-align: justify;
 }
 
@@ -976,3 +976,103 @@ h4:hover {
       transform: translateY(0px);
     }
   }
+
+
+
+  /*VISTA DE SKILLS*/
+  .skills__contenedor {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
+    overflow: hidden;
+}
+
+#skills-container {
+    width: 80vw;
+    height: 80vh;
+    position: relative;
+}
+
+.skill-cube {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    animation: rotateCube 5s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    border: 3px solid #00f;
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.75);
+    background-color: rgba(0, 0, 255, 0.5);
+    text-align: center;
+}
+
+.front  { transform: translateZ(50px); }
+.back   { transform: rotateY(180deg) translateZ(50px); }
+.right  { transform: rotateY(90deg) translateZ(50px); }
+.left   { transform: rotateY(-90deg) translateZ(50px); }
+.top    { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+.skill-cube img {
+    width: 40px;
+    height: 40px;
+}
+
+@keyframes rotateCube {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+#info-card {
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+
+#info-card h2 {
+    margin-top: 0;
+}
+
+#info-card button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#info-card button:hover {
+    background-color: #0056b3;
+}
