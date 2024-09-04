@@ -6,12 +6,12 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Set background color
-renderer.setClearColor('#03071e'); // Changed to black for contrast
-const textureLoader = new THREE.TextureLoader();
-const backgroundTexture = textureLoader.load('https://freerangestock.com/sample/37388/space-background.jpg');
+renderer.setClearColor('#black'); // Changed to black for contrast
+const textureLoader = new THREE.TextureLoader();    
+// const backgroundTexture = textureLoader.load('https://freerangestock.com/sample/37388/space-background.jpg');
 
 // Set the texture as the background of the scene
-scene.background = backgroundTexture;
+// scene.background = backgroundTexture;
 // Create a sphere with interactive shader
 // const geometry = new THREE.SphereGeometry(2.5, 80, 80); 
 // const geometry = new THREE.TorusKnotGeometry(2.5, 0.5, 100, 16);
