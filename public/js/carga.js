@@ -198,42 +198,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /*VISTA DE SKILLS*/
+/*VISTA DE SKILLS*/
 const skills = [
-    { name: 'HTML', icon: '../storage/html.webp', description: 'HTML es el lenguaje de marcado estándar para crear páginas web.' },
+    { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', description: 'HTML es el lenguaje de marcado estándar para crear páginas web.' },
     { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', description: 'CSS es el lenguaje utilizado para describir la presentación de un documento escrito en HTML.' },
-    { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', description: 'JavaScript es un lenguaje de programación que permite crear contenido dinámico en la web.' }, 
-    { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-    { name: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-    { name: 'npm', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg' },
-    { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
-    { name: 'Canva', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg' },
-    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-    { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
-    { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
-    { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-    { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-    { name: 'Express', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' }
+    { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', description: 'JavaScript es un lenguaje de programación que permite crear contenido dinámico en la web.' },
+    { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg', description: 'Python es un lenguaje de programación versátil y de alto nivel, utilizado en desarrollo web, análisis de datos, inteligencia artificial y más.' },
+    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', description: 'Node.js es un entorno de ejecución para JavaScript en el servidor, que permite desarrollar aplicaciones web escalables y eficientes.' },
+    { name: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', description: 'SQL es un lenguaje estándar para gestionar y manipular bases de datos relacionales.' },
+    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', description: 'Git es un sistema de control de versiones distribuido utilizado para gestionar el código fuente y colaborar en proyectos de desarrollo.' },
+    { name: 'npm', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg', description: 'npm es el gestor de paquetes para Node.js, que facilita la instalación y gestión de dependencias de proyectos JavaScript.' },
+    { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg', description: 'Visual Studio Code es un editor de código fuente ligero y potente, con soporte para depuración, control de versiones y extensiones.' },
+    { name: 'Canva', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg', description: 'Canva es una herramienta de diseño gráfico en línea que permite crear y editar gráficos, presentaciones y otros contenidos visuales.' },
+    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', description: 'GitHub es una plataforma de desarrollo colaborativo que utiliza Git para el control de versiones y proporciona herramientas para la gestión de proyectos y código.' },
+    { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', description: 'Figma es una herramienta de diseño de interfaces y prototipos colaborativos en la web, ideal para el diseño de UI/UX.' },
+    { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg', description: 'Linux es un sistema operativo de código abierto conocido por su estabilidad, seguridad y flexibilidad en servidores y sistemas embebidos.' },
+    { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', description: 'MongoDB es una base de datos NoSQL orientada a documentos, que permite almacenar datos en formatos JSON-like y proporciona alta escalabilidad.' },
+    { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', description: 'MySQL es un sistema de gestión de bases de datos relacional de código abierto, ampliamente utilizado en aplicaciones web y de software.' },
+    { name: 'Express', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', description: 'Express es un framework web para Node.js que facilita la creación de aplicaciones web y APIs con una arquitectura flexible y minimalista.' }
 ];
 
-const container = document.getElementById('skills-container');
-const containerRect = container.getBoundingClientRect();
+
+const columns = document.querySelectorAll('.carousel-column');
 const infoCard = document.getElementById('info-card');
 const infoTitle = document.getElementById('info-title');
 const infoDescription = document.getElementById('info-description');
 const closeBtn = document.getElementById('close-btn');
 
-skills.forEach(skill => {
+skills.forEach((skill, index) => {
     const skillElement = document.createElement('div');
     skillElement.className = 'skill-cube';
-
-    // Añadir las 6 caras del cubo
-    const faces = ['front', 'back', 'right', 'left', 'top', 'bottom'];
-    faces.forEach(face => {
+    
+    // Crear las caras del cubo
+    ['front', 'back', 'right', 'left', 'top', 'bottom'].forEach(face => {
         const faceElement = document.createElement('div');
         faceElement.className = `face ${face}`;
-        if (face === 'front') {
+        
+        if (['front', 'right', 'top','left'].includes(face)) {
             const img = document.createElement('img');
             img.src = skill.icon;
             img.alt = skill.name;
@@ -241,45 +242,19 @@ skills.forEach(skill => {
         } else {
             faceElement.textContent = skill.name;
         }
+        
         skillElement.appendChild(faceElement);
     });
 
-    // Posición inicial aleatoria
-    const maxX = containerRect.width - 100;
-    const maxY = containerRect.height - 100;
-    let x = Math.random() * maxX;
-    let y = Math.random() * maxY;
-
-    skillElement.style.left = `${x}px`;
-    skillElement.style.top = `${y}px`;
-    
-    // Añadir el evento click para mostrar la tarjeta de información
+    // Añadir evento de clic para mostrar la tarjeta de información
     skillElement.addEventListener('click', () => {
         infoTitle.textContent = skill.name;
         infoDescription.textContent = skill.description;
-        infoCard.style.display = 'block'; 
+        infoCard.style.display = 'block';
     });
 
-    container.appendChild(skillElement);
-
-    // Movimiento aleatorio
-    let dx = (Math.random() - 0.5) * 2;
-    let dy = (Math.random() - 0.5) * 2;
-
-    function animate() {
-        x += dx;
-        y += dy;
-
-        if (x < 0 || x > maxX) dx = -dx;
-        if (y < 0 || y > maxY) dy = -dy;
-
-        skillElement.style.left = `${x}px`;
-        skillElement.style.top = `${y}px`;
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
+    // Distribuir los cubos en las columnas
+    columns[index % columns.length].appendChild(skillElement);
 });
 
 // Cerrar la tarjeta de información

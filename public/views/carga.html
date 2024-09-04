@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Three.js Interactive Sphere</title>
     <link rel="stylesheet" href="../css/carga.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -26,15 +26,20 @@
 
     <div id="overlay" class="overlay">
         <nav class="menu">
-            <a href="#" data-section="inicio"><i class="icon fas fa-home"></i><span class="link-text">Inicio</span></a>
-            <a href="#" data-section="perfil"><i class="icon fas fa-user"></i><span class="link-text">Perfil</span></a>
-            <a href="../storage/hojaDeVida.pdf" data-section="hoja-de-vida"><i class="icon fas fa-file-alt"></i><span class="link-text">Hoja de Vida</span></a>
-            <a href="#" data-section="mision-vision"><i class="icon fas fa-bullseye"></i><span class="link-text">Misión y Visión</span></a>
-            <a href="#" data-section="objetivo-profesional"><i class="icon fas fa-tasks"></i><span class="link-text">Objetivo Profesional</span></a>
-            <a href="#" data-section="servicios"><i class="icon fas fa-cogs"></i><span class="link-text">Servicios</span></a>
-            <a href="#" data-section="proyectos"><i class="icon fas fa-project-diagram"></i><span class="link-text">Proyectos</span></a>
-            <a href="#" data-section="contacto"><i class="icon fas fa-envelope"></i><span class="link-text">Contacto</span></a>
+            <a href="#" data-section="inicio"><span class="link-text">Inicio</span></a>
+            <a href="#" data-section="perfil"><span class="link-text">Perfil</span></a>
+            <a href="../storage/hojaDeVida.pdf" data-section="hoja-de-vida"><span class="link-text">Hoja de Vida</span></a>
+            <a href="#" data-section="mision-vision"><span class="link-text">Misión y Visión</span></a>
+            <!-- <a href="#" data-section="objetivo-profesional"><i class="icon fas fa-tasks"></i><span class="link-text">Objetivo Profesional</span></a> -->
+            <a href="#" data-section="servicios"><span class="link-text">Servicios</span></a>
+            <a href="#" data-section="proyectos"><span class="link-text">Proyectos</span></a>
+            <a href="#" data-section="contacto"><span class="link-text">Contacto</span></a>
+           
         </nav>
+        <div class="redes">
+            <a href="https://github.com/HenryFabianBoadaRubio" data-section="contacto"><i class="bi bi-github"></i><span class="link-text "></span></a>
+            <a href="https://www.linkedin.com/in/henryboadarubio123/" data-section="contacto"><i class="bi bi-linkedin"></i><span class="link-text "></span></a>
+        </div>
     </div>
 
     <main class="main-container">
@@ -118,8 +123,10 @@
 
                </div>
                <div class="texto__acerca">
+                <!-- <p>Desarrollador Backend, con amplias capacidades para crear soluciones eficientes y escalables. Mi objetivo profesional es utilizar mi experiencia en múltiples tecnologías y lenguajes de programación para abordar desafíos complejos y ofrecer soluciones innovadoras. Capacitado para trabajar en equipo, mantener una comunicación efectiva y fomentar el autoaprendizaje.</p> -->
+                <p>Desarrollador Backend orientado a la creación de soluciones eficientes y tecnológicamente avanzadas. Mi objetivo profesional es aportar mi experiencia en el diseño y desarrollo de sistemas escalables, enfrentando desafíos tecnológicos con creatividad y precisión. Comprometido con el trabajo en equipo y la mejora continua, busco generar un impacto positivo mediante la innovación y el aprendizaje continuo.</p>
 
-                   <p>Desarrollador Backend, con amplias capacidades para crear soluciones eficientes y escalables. Con una amplia experiencia en múltiples tecnologías y lenguajes de programación, capacitado para abordar desafíos complejos y crear soluciones innovadoras, partiendo del trabajo en equipo, comunicación efectiva y autoaprendizaje</p>
+                   <!-- <p>Desarrollador Backend, con amplias capacidades para crear soluciones eficientes y escalables. Con una amplia experiencia en múltiples tecnologías y lenguajes de programación, capacitado para abordar desafíos complejos y crear soluciones innovadoras, partiendo del trabajo en equipo, comunicación efectiva y autoaprendizaje</p> -->
                </div>
                 <!-- <p>Desarrollador de software con formación en tecnología eléctrica, destacado por mi capacidad para integrar conocimientos técnicos y resolver problemas complejos. Mi experiencia en desarrollo web y en gestión de proyectos refleja un enfoque creativo y riguroso. -->
                     <!-- Me destaco en el trabajo en equipo y en el liderazgo, con habilidades para motivar y coordinar a los miembros del equipo, además de una sólida capacidad organizativa. Busco continuamente aplicar para aplicar y expandir mis habilidades socioemocionales y técnicas, creando soluciones innovadoras que optimicen el rendimiento digital.
@@ -247,13 +254,31 @@
             </div>
         </section>
 
-
+        
+        <div class="contenedor__titulo__habilidades">
+            <h6>
+                <span class="highlighted-text orange"> < H</span><span class="highlighted-text white">abilidades</span><span class="highlighted-text orange"> /></span>
+              </h6>
+        </div>
         <section class="skills__contenedor">
-            <div id="skills-container"></div>
+            <div id="carousel-container">
+                <div class="carousel-column"></div>
+                <div class="carousel-column"></div>
+                <div class="carousel-column"></div>
+            </div>
             <div id="info-card" class="hidden">
                 <h2 id="info-title"></h2>
                 <p id="info-description"></p>
                 <button id="close-btn">Cerrar</button>
+            </div>
+        </section>
+        
+
+
+
+        <section>
+            <div class="contenedor__servicios">
+
             </div>
         </section>
         
