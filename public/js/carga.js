@@ -301,3 +301,96 @@ function moveSlide(step) {
 document.addEventListener('DOMContentLoaded', () => {
     showSlide(slideIndex);
 });
+
+
+
+
+
+
+/*fondo*/
+document.addEventListener('DOMContentLoaded', () => {
+    const numberOfBalls = 50;
+    const colors = ['#e67e22', '#f39c12', '#d35400'];
+    const speedFactor = 0.02;
+    const pushStrength = 1;
+    const influenceRadius = 50;
+    const boundaryOffset = 10; // Ajuste adicional para el área de reposicionamiento
+
+    const balls = [];
+
+    for (let i = 0; i < numberOfBalls; i++) {
+        const ball = document.createElement('div');
+        ball.classList.add('ball');
+
+        const size = Math.random() * 7 + 1; // Tamaño mínimo de 10px
+        ball.style.width = `${size}px`;
+        ball.style.height = `${size}px`;
+        ball.style.top = `${Math.random() * 100}vh`;
+        ball.style.left = `${Math.random() * 100}vw`;
+
+        ball.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+        document.getElementById('background').appendChild(ball);
+
+        balls.push({
+            element: ball,
+            top: parseFloat(ball.style.top),
+            left: parseFloat(ball.style.left),
+            deltaX: (Math.random() - 0.5) * 2 * speedFactor,
+            deltaY: (Math.random() - 0.5) * 2 * speedFactor
+        });
+    }
+
+    function animateBalls() {
+        balls.forEach(ball => {
+            ball.top += ball.deltaY;
+            ball.left += ball.deltaX;
+
+            // Si la bolita sale del área visible, reposición en el área visible
+            if (ball.top > 100 + boundaryOffset || ball.top < -boundaryOffset || 
+                ball.left > 100 + boundaryOffset || ball.left < -boundaryOffset) {
+                
+                ball.top = Math.random() * 100;
+                ball.left = Math.random() * 100;
+                ball.deltaX = (Math.random() - 0.5) * 2 * speedFactor;
+                ball.deltaY = (Math.random() - 0.5) * 2 * speedFactor;
+            }
+
+            ball.element.style.top = `${ball.top}vh`;
+            ball.element.style.left = `${ball.left}vw`;
+        });
+
+        requestAnimationFrame(animateBalls);
+    }
+
+    function applyPush(event) {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+
+        balls.forEach(ball => {
+            const ballRect = ball.element.getBoundingClientRect();
+            const ballCenterX = ballRect.left + ballRect.width / 2;
+            const ballCenterY = ballRect.top + ballRect.height / 2;
+
+            const distanceX = mouseX - ballCenterX;
+            const distanceY = mouseY - ballCenterY;
+            const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+            if (distance < influenceRadius) { // Radio de influencia para el empuje
+                const normalizedDistanceX = distanceX / distance;
+                const normalizedDistanceY = distanceY / distance;
+
+                // Calcula el empuje en la dirección hacia la bolita
+                const pushX = normalizedDistanceX * pushStrength * (1 - distance / influenceRadius);
+                const pushY = normalizedDistanceY * pushStrength * (1 - distance / influenceRadius);
+
+                ball.deltaX += pushX;
+                ball.deltaY += pushY;
+            }
+        });
+    }
+
+    animateBalls();
+
+    document.addEventListener('mousemove', applyPush);
+});
