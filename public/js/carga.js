@@ -394,3 +394,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('mousemove', applyPush);
 });
+
+
+
+/*PROYECTOS*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    const items = document.querySelectorAll('.item');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.querySelector('.close');
+    let isZoomed = false;
+    let flipTimeouts = new Map();
+
+    function startFlipTimeout(item) {
+        // Clear any existing timeout for this item
+        if (flipTimeouts.has(item)) {
+            clearTimeout(flipTimeouts.get(item));
+        }
+        
+        // Set a new timeout
+        const timeout = setTimeout(() => {
+            item.classList.remove('flipped');
+        }, 5000); // 5 seconds, adjust as needed
+        
+        flipTimeouts.set(item, timeout);
+    }
+
+    items.forEach(item => {
+        item.addEventListener('click', function() {
+            const img = this.querySelector('img');
+            if (!isZoomed) {
+                modalImg.src = img.src;
+                modal.style.display = 'flex';
+                isZoomed = true;
+                setTimeout(() => {
+                    if (isZoomed) {
+                        modal.style.display = 'none';
+                        this.classList.add('flipped');
+                        isZoomed = false;
+                        startFlipTimeout(this);
+                    }
+                }, 1500);
+            } else {
+                this.classList.toggle('flipped');
+                if (this.classList.contains('flipped')) {
+                    startFlipTimeout(this);
+                } else {
+                    // If manually flipped back, clear the timeout
+                    clearTimeout(flipTimeouts.get(this));
+                    flipTimeouts.delete(this);
+                }
+            }
+        });
+
+        // Reset flip timeout on mouse enter
+        item.addEventListener('mouseenter', function() {
+            if (this.classList.contains('flipped')) {
+                startFlipTimeout(this);
+            }
+        });
+    });
+
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+        isZoomed = false;
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            isZoomed = false;
+        }
+    }
+});

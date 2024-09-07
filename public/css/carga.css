@@ -922,7 +922,7 @@
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         border-radius: 5px;
-        border: 1px solid yellow;
+        /* border: 1px solid yellow; */
         overflow: hidden;
     }
     
@@ -1353,38 +1353,37 @@
 
 
     /*proyectos*/
-.contenedor__proyectos{
+/* .contenedor__proyectos{
     display: flex;
     width: 100%;
     height: 110vh;
-    /* margin: 0; */
+    
     background-color: #03071e;
     flex-direction: row;
-    /* border: 1px solid red; */
+   
     align-items: center;
     background-color: black;
     flex-direction: column;
 }
 .contenedor__galeria{
     gap: 2%;
-    /* border: 1px solid rgb(179, 255, 0); */
+   
     display: flex;
     margin-top: 7%;
-    /* position: relative; */
+  
 }
 .galeria {
     width: 100%;
-    /* border: 1px solid rgb(0, 110, 255); */
+
     border-radius: 10px;
     display: flex;
     border: 1px solid orangered;
-    /* flex-wrap: wrap; */
-    /* border: 1px solid rgb(179, 255, 0); */
+   
     gap: 15px;
 }
 
 .item {
-    /* border: 1px solid red; */
+ 
    
     position: relative;
     width: 100%;
@@ -1415,7 +1414,7 @@
     padding: 10px;
     top: 0;
     border-radius: 10px;
-    /* border: 1px solid rgb(0, 255, 115); */
+   
 
 }
 
@@ -1442,9 +1441,169 @@
 
 .item:hover {
     transform: scale(1.05);
+} */
+
+.projects-section {
+    background-color: #03071e;
+    padding: 50px 0;
 }
 
+.contenedor__proyectos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
+.titulo__servicios__Dados h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.highlighted-text.orange {
+    color: #ff4500;
+}
+
+.highlighted-text.white {
+    color: #ffffff;
+}
+
+.contenedor__galeria {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.galeria {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    perspective: 1000px;
+}
+
+.item {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.front {
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+
+.front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.item:hover .front img {
+    transform: scale(1.1);
+}
+
+.back {
+    background: rgba(255, 69, 0, 0.9);
+    color: #fff;
+    transform: rotateY(180deg);
+    padding: 20px;
+    text-align: center;
+}
+
+.item.flipped {
+    transform: rotateY(180deg);
+}
+
+.back h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.back p {
+    margin-bottom: 20px;
+}
+
+.boton {
+    background-color: #ffffff;
+    color: #ff4500;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.boton:hover {
+    background-color: #ff4500;
+    color: #ffffff;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .contenedor__galeria {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .galeria {
+        width: 100%;
+        max-width: none;
+    }
+}
 /*CONTENEDOR CONTACTO*/
 .contacto {
     width: 100%;
