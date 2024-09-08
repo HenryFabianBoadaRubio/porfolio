@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set a new timeout
         const timeout = setTimeout(() => {
             item.classList.remove('flipped');
-        }, 5000); // 5 seconds, adjust as needed
+        }, 7000); // 5 seconds, adjust as needed
         
         flipTimeouts.set(item, timeout);
     }

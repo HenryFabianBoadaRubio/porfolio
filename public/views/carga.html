@@ -28,14 +28,14 @@
     
     <div id="overlay" class="overlay">
         <nav class="menu">
-            <a href="#" data-section="inicio"><span class="link-text">Inicio</span></a>
+            <a href="#inicio" data-section="inicio"><span class="link-text">Inicio</span></a>
             <a href="#seccion1" data-section="perfil"><span class="link-text">Perfil</span></a>
             <a href="../storage/hojaDeVida.pdf" data-section="hoja-de-vida"><span class="link-text">Hoja de Vida</span></a>
-            <a href="#" data-section="mision-vision"><span class="link-text">Misión y Visión</span></a>
+            <a href="#mivi" data-section="mision-vision"><span class="link-text">Misión y Visión</span></a>
             <!-- <a href="#" data-section="objetivo-profesional"><i class="icon fas fa-tasks"></i><span class="link-text">Objetivo Profesional</span></a> -->
-            <a href="#" data-section="servicios"><span class="link-text">Servicios</span></a>
-            <a href="#" data-section="proyectos"><span class="link-text">Proyectos</span></a>
-            <a href="#" data-section="contacto"><span class="link-text">Contacto</span></a>
+            <a href="#servicios" data-section="servicios"><span class="link-text">Servicios</span></a>
+            <a href="#proyect" data-section="proyectos"><span class="link-text">Proyectos</span></a>
+            <a href="#contact" data-section="contacto"><span class="link-text">Contacto</span></a>
             
         </nav>
         <div class="redes">
@@ -50,7 +50,7 @@
             
             
             <section class="contenedor__datos">
-                <div id="seccion1" class="contenedor__principal">
+                <div id="inicio" class="contenedor__principal">
                     <h4> < h1 > </h4>
                     <h4>|</h4>
                     <h4>|</h4>
@@ -81,7 +81,7 @@
         
             <div class="descripcion__personal">
                 <div class="titulo__Descripcion">
-                    <h6>Acerca de Mí</h6>
+                    <h6 id="seccion1">Acerca de Mí</h6>
                     <div class="wrapper">
                         <div class="circles"></div>
                         <div class="circles"></div>
@@ -102,7 +102,7 @@
             <div class="contenedor__Segunda__vista">
                 <div class="titulo__servicios__Dados">
 
-                    <h6>
+                    <h6 id="mivi">
                         <span class="highlighted-text orange"> < M</span><span class="highlighted-text white">isión</span><span class="highlighted-text white"> y </span> <span class="highlighted-text orange"> V</span><span class="highlighted-text white">isión</span><span class="highlighted-text orange"> /></span>
                       </h6>
                 </div>
@@ -250,7 +250,7 @@
         <section class="container__servicios">
             <div class="titulo__servicios__Dados">
 
-                <h6>
+                <h6 id="servicios">
                     <span class="highlighted-text orange"> < S</span><span class="highlighted-text white">ervicios</span><span class="highlighted-text orange"> /></span>
                   </h6>
             </div>
@@ -302,81 +302,109 @@
         <section class="projects-section">
             <div class="contenedor__proyectos">
                 <div class="titulo__servicios__Dados">
-                    <h2>
+                    <h2 id="proyect">
                         <span class="highlighted-text orange">&lt; P</span><span class="highlighted-text white">royectos</span><span class="highlighted-text orange"> /&gt;</span>
                     </h2>
                 </div>
                 <div class="contenedor__galeria">
-                    
-                    <div class="galeria">
-                        <div class="item">
-                            <div class="front">
-                                <img src="../storage/WALLET.png" alt="Proyecto 1">
+                    <div class="carrusel__proyectos">
+
+                        <div class="galeria">
+                            <div class="item">
+                                <div class="front">
+                                    <img src="../storage/WALLET.png" alt="Proyecto 1">
+                                </div>
+                                <div class="backk">
+                                    <h3>Virtual Wallet</h3>
+                                    <p>Billetera virtual que emula las funciones de un banco, permitiendo transferencias, gestión de cuentas y consultas de saldo en tiempo real.</p>
+                                    <a href="https://henryfabianboadarubio.github.io/virtualWallet/" class="boton">Ver Más</a>
+                                </div>
                             </div>
-                            <div class="back">
-                                <h3>Proyecto 1</h3>
-                                <p>Breve descripción del proyecto</p>
-                                <a href="#" class="boton">Ver Más</a>
+                        </div>
+                        <div class="galeria">
+                            <div class="item">
+                                <div class="front">
+                                    <img src="../storage/xpeace.png" alt="Proyecto 2">
+                                </div>
+                                <div class="backk">
+                                    <h3>Xpace</h3>
+                                    <p>Consume la API de SpaceX para proporcionar información completa sobre lanzamientos, cohetes y misiones de la empresa de Elon Musk, ofreciendo datos actualizados y detallados del sector espacial.</p>
+                                    <a href="https://henryfabianboadarubio.github.io/spacex/" class="boton">Ver Más</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="galeria">
+                            <div class="item">
+                                <div class="front">
+                                    <img src="../storage/ecomerce.png" alt="Proyecto 3">
+                                </div>
+                                <div class="backk">
+                                    <h3>Ecommerce</h3>
+                                    <p>Tienda de ropa virtual que emula funciones básicas de selección y visualización de prendas, ofreciendo una experiencia intuitiva para explorar y elegir ropa en línea.</p>
+                                    <a href="#" class="boton">Ver Más</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="galeria">
+                            <div class="item">
+                                <div class="front">
+                                    <img src="../storage/foodlover.png" alt="Proyecto 3">
+                                </div>
+                                <div class="backk">
+                                    <h3>Slide Food</h3>
+                                    <p>Slide interactivo que presenta un restaurante y sus platillos, brindando información general y destacando la oferta gastronómica de manera atractiva y accesible.</p>
+                                    <a href="https://henryfabianboadarubio.github.io/foodLover/" class="boton">Ver Más</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="galeria">
-                        <div class="item">
-                            <div class="front">
-                                <img src="../storage/xpeace.png" alt="Proyecto 2">
-                            </div>
-                            <div class="back">
-                                <h3>Proyecto 2</h3>
-                                <p>Breve descripción del proyecto</p>
-                                <a href="#" class="boton">Ver Más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="galeria">
-                        <div class="item">
-                            <div class="front">
-                                <img src="../storage/ecomerce.png" alt="Proyecto 3">
-                            </div>
-                            <div class="back">
-                                <h3>Proyecto 3</h3>
-                                <p>Breve descripción del proyecto</p>
-                                <a href="#" class="boton">Ver Más</a>
+                    <div class="carrusel__proyectos">
+                        <div class="galeria">
+                            <div class="item">
+                                <div class="front">
+                                    <img src="../storage/encriptar.png" alt="Proyecto 3">
+                                </div>
+                                <div class="backk">
+                                    <h3>Encriptador</h3>
+                                    <p>Herramienta para encriptar y desencriptar textos, asegurando la confidencialidad de la información mediante métodos avanzados de cifrado y descifrado.</p>
+                                    <a href="#" class="boton">Ver Más</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="galeria">
-                        <div class="item">
-                            <div class="front">
-                                <img src="../storage/foodlover.png" alt="Proyecto 3">
-                            </div>
-                            <div class="back">
-                                <h3>Proyecto 3</h3>
-                                <p>Breve descripción del proyecto</p>
-                                <a href="#" class="boton">Ver Más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="galeria">
-                        <div class="item">
-                            <div class="front">
-                                <img src="../storage/spotify.png" alt="Proyecto 3">
-                            </div>
-                            <div class="back">
-                                <h3>Proyecto 3</h3>
-                                <p>Breve descripción del proyecto</p>
-                                <a href="#" class="boton">Ver Más</a>
+                        <div class="galeria">
+                            <div class="item">
+                                <div class="front">
+                                    <img src="../storage/cinecampus.png" alt="Proyecto 3">
+                                </div>
+                                <div class="backk">
+                                    <h3>Cinema</h3>
+                                    <p>Plataforma de cine que permite a los usuarios explorar películas, comprar boletos y gestionar reservas, ofreciendo una experiencia completa y fluida para cinéfilos y asistentes.</p>
+                                    <a href="#" class="boton">Ver Más</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="galeria">
-                        <div class="item">
-                            <div class="front">
-                                <img src="../storage/foods.png" alt="Proyecto 3">
+                        <div class="galeria">
+                            <div class="item">
+                                <div class="front">
+                                    <img src="../storage/spotify.png" alt="Proyecto 3">
+                                </div>
+                                <div class="backk">
+                                    <h3>Spotify</h3>
+                                    <p>Aplicación de streaming musical que permite a los usuarios buscar, escuchar y gestionar música, ofreciendo una experiencia fluida y accesible para explorar sus canciones favoritas.</p>
+                                    <a href="https://henryfabianboadarubio.github.io/proyectoJavaScript/" class="boton">Ver Más</a>
+                                </div>
                             </div>
-                            <div class="back">
-                                <h3>Proyecto 3</h3>
-                                <p>Breve descripción del proyecto</p>
-                                <a href="#" class="boton">Ver Más</a>
+                        </div>
+                        <div class="galeria">
+                            <div class="item">
+                                <div class="front">
+                                    <img src="../storage/foods.png" alt="Proyecto 3">
+                                </div>
+                                <div class="backk">
+                                    <h3>Foods</h3>
+                                    <p>Página web para restaurantes que muestra productos, servicios, y detalles de contacto, proporcionando una interfaz clara y accesible para los clientes.</p>
+                                    <a href="https://henryfabianboadarubio.github.io/proyectoWeb/" class="boton">Ver Más</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -393,7 +421,7 @@
                 <div class="contenedor">
                     <div class="titulo__servicios__Dados">
 
-                        <h6>
+                        <h6 id="contact">
                             <span class="highlighted-text orange"> < C</span><span class="highlighted-text white">ontáctame</span><span class="highlighted-text orange"> /></span>
                           </h6>
                     </div>
