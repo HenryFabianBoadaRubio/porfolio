@@ -1457,7 +1457,7 @@
     height: 100%;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     /* border: 1px solid rgb(0, 255, 21); */
 
 }
@@ -1486,22 +1486,27 @@
 }
 .carrusel__proyectos{
     display: flex;
-    width: 400%;
+    width: 100%;
     height: 100%;
     gap: 30px;
+    justify-content: center;
      /* scrollbar-width: none; */
-     padding: 20px 10px  ;
+     padding: 20px 0;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     /* border: 1px solid rgb(17, 0, 255); */
+    scrollbar-width: none;
     
 }
 
 .galeria {
     flex: 1;
-    min-width: 400px;
+    min-width: 390px;
     max-width: 600px;
     perspective: 1000px;
+    padding: 0 10px;
+    /* border: 1px solid rgb(94, 255, 0); */
+    
 }
 
 .item {
@@ -1511,6 +1516,8 @@
     transition: transform 0.6s;
     transform-style: preserve-3d;
     cursor: pointer;
+    /* border: 1px solid rgb(94, 255, 0); */
+
 }
 
 .front, .backk {
@@ -1528,6 +1535,8 @@
     
     0 0 5px rgba(255, 255, 255, 0.4),
     0 0 10px rgba(255, 255, 255, 0.2);
+    /* border: 1px solid rgb(94, 255, 0); */
+
 }
 
 .front {

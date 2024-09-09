@@ -468,3 +468,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+// Selecciona los dos carruseles de proyectos
+const carruseles = document.querySelectorAll('.carrusel__proyectos');
+
+// Función para hacer que el contenido del carrusel se mueva continuamente
+function carruselContinuo(carrusel, direction) {
+    const velocidad = 1; // Píxeles por frame
+    let posicion = 0;
+    const elementos = Array.from(carrusel.children);
+    const totalClones = 20;
+    
+    // Función para clonar los elementos en secuencia
+    function clonarEnSecuencia(elementos, totalClones) {
+        const numElementos = elementos.length;
+        let count = 0;
+    
+        while (count < totalClones) {
+            for (let i = 0; i < numElementos && count < totalClones; i++) {
+                const clon = elementos[i].cloneNode(true);
+                carrusel.appendChild(clon);
+                count++;
+            }
+        }
+    }
+    
+    clonarEnSecuencia(elementos, totalClones);
+    
+   
+    const factorDeVelocidad = 0.4;
+    function mover() {
+        posicion += velocidad*factorDeVelocidad;
+        
+        const elementos = Array.from(carrusel.children);
+        const anchoTotal = elementos.reduce((total, el) => total + el.offsetWidth + 30, 0); // 30 es el gap
+
+        elementos.forEach((elemento) => {
+            elemento.style.transform = `translateX(${posicion * direction}px)`;
+        });
+
+        // Si hemos movido una distancia igual al ancho total, reseteamos la posición
+        if (posicion >= anchoTotal) {
+            posicion = 0;
+            elementos.forEach((elemento) => {
+                elemento.style.transform = `translateX(0)`;
+            });
+        }
+
+        requestAnimationFrame(mover);
+    }
+
+    requestAnimationFrame(mover);
+}
+
+// Aplicar el movimiento continuo a ambos carruseles
+carruseles.forEach((carrusel, index) => {
+    // El primer carrusel se mueve hacia la izquierda, el segundo hacia la derecha
+    const direction = index === 0 ? -1 : 1;
+    carruselContinuo(carrusel, direction);
+});
