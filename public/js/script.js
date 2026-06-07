@@ -1,5 +1,4 @@
-
-  document.getElementById("myButton").addEventListener("click", function() {
+document.getElementById("myButton").addEventListener("click", function() {
     window.location.href = "./views/carga.html"
   });
 
@@ -411,68 +410,130 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 });
+
 /* ============================================================
-   CARRUSEL DE PROYECTOS
+   CARRUSEL DE PROYECTOS — escritorio infinito / móvil swipe
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
+
   const esMovil = window.innerWidth <= 768 ||
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   const carruseles = document.querySelectorAll('.carrusel__proyectos');
 
   if (esMovil) {
-    /* Ocultar botones de escritorio y activar navegación simple */
+    /* ── MÓVIL: una tarjeta a la vez con swipe táctil ── */
     carruseles.forEach(carrusel => {
-      const inner = carrusel.querySelector('.carrusel__inner');
-      if (!inner) return;
-      const items = Array.from(inner.children);
-      const prevBtn = carrusel.querySelector('.prev__btn');
-      const nextBtn = carrusel.querySelector('.next__btn');
+      const galerias = Array.from(carrusel.querySelectorAll('.galeria'));
+      if (!galerias.length) return;
+
       let current = 0;
 
-      /* Mostrar botones en móvil */
-      if (prevBtn) prevBtn.style.display = 'block';
-      if (nextBtn) nextBtn.style.display = 'block';
+      carrusel.style.cssText = `
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        gap: 0;
+        padding: 0;
+        scroll-snap-type: none;
+      `;
 
-      function goTo(n) {
-        current = (n + items.length) % items.length;
-        inner.style.transform = `translateX(-${current * 100}%)`;
+      const inner = document.createElement('div');
+      inner.style.cssText = `
+        display: flex;
+        width: 100%;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
+      `;
+
+      galerias.forEach(g => {
+        g.style.cssText = `
+          min-width: 100%;
+          flex-shrink: 0;
+          padding: 0 8px;
+          box-sizing: border-box;
+        `;
+        inner.appendChild(g);
+      });
+      carrusel.appendChild(inner);
+
+      /* Puntitos indicadores */
+      const dots = document.createElement('div');
+      dots.style.cssText = `
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 12px;
+        width: 100%;
+      `;
+      galerias.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.style.cssText = `
+          width: 8px; height: 8px;
+          border-radius: 50%;
+          background: ${i === 0 ? 'orangered' : 'rgba(255,255,255,0.3)'};
+          transition: background 0.3s;
+          cursor: pointer;
+        `;
+        dot.addEventListener('click', () => goTo(i));
+        dots.appendChild(dot);
+      });
+      carrusel.parentElement.appendChild(dots);
+
+      function updateDots() {
+        Array.from(dots.children).forEach((dot, i) => {
+          dot.style.background = i === current ? 'orangered' : 'rgba(255,255,255,0.3)';
+        });
       }
 
-      prevBtn && prevBtn.addEventListener('click', () => goTo(current - 1));
-      nextBtn && nextBtn.addEventListener('click', () => goTo(current + 1));
+      function goTo(n) {
+        current = (n + galerias.length) % galerias.length;
+        inner.style.transform = `translateX(-${current * 100}%)`;
+        updateDots();
+      }
 
       /* Swipe táctil */
       let startX = 0;
-      inner.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+      let startY = 0;
+      let isDragging = false;
+
+      inner.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isDragging = true;
+      }, { passive: true });
+
+      inner.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+        const diffX = Math.abs(e.touches[0].clientX - startX);
+        const diffY = Math.abs(e.touches[0].clientY - startY);
+        if (diffX > diffY) e.preventDefault();
+      }, { passive: false });
+
       inner.addEventListener('touchend', e => {
+        if (!isDragging) return;
+        isDragging = false;
         const diff = startX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
-      });
+        if (Math.abs(diff) > 50) {
+          goTo(diff > 0 ? current + 1 : current - 1);
+        }
+      }, { passive: true });
     });
 
-    return; /* salir — no clonar nada */
+    return; /* Salir — no clonar nada en móvil */
   }
 
-  /* ---- ESCRITORIO: carrusel infinito ---- */
+  /* ── ESCRITORIO: carrusel infinito animado (intacto) ── */
   carruseles.forEach((carrusel, index) => {
-    const inner = carrusel.querySelector('.carrusel__inner');
-    if (!inner) return;
-
-    /* Ocultar botones en escritorio */
-    const prevBtn = carrusel.querySelector('.prev__btn');
-    const nextBtn = carrusel.querySelector('.next__btn');
-    if (prevBtn) prevBtn.style.display = 'none';
-    if (nextBtn) nextBtn.style.display = 'none';
-
     const direction = index === 0 ? -1 : 1;
-    const elementos = Array.from(inner.children);
+    const elementos = Array.from(carrusel.children);
     let count = 0;
 
     while (count < 20) {
       elementos.forEach(el => {
         if (count >= 20) return;
-        inner.appendChild(el.cloneNode(true));
+        carrusel.appendChild(el.cloneNode(true));
         count++;
       });
     }
@@ -481,15 +542,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function mover() {
       posicion += 0.4;
-      const hijos = Array.from(inner.children);
+      const hijos = Array.from(carrusel.children);
       const anchoTotal = hijos.reduce((t, el) => t + el.offsetWidth + 30, 0);
+
       hijos.forEach(el => {
         el.style.transform = `translateX(${posicion * direction}px)`;
       });
+
       if (posicion >= anchoTotal) posicion = 0;
       requestAnimationFrame(mover);
     }
 
     requestAnimationFrame(mover);
   });
+
+});
+
+/* ============================================================
+   BOTÓN INICIO — ir al portafolio
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('myButton');
+  if (!btn) return;
+
+  function irAlPortafolio() {
+    window.location.href = './views/carga.html';
+  }
+
+  btn.addEventListener('click', irAlPortafolio);
+
+  btn.addEventListener('touchend', function (e) {
+    e.preventDefault();
+    irAlPortafolio();
+  });
+
+  btn.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      irAlPortafolio();
+    }
+  });
+
+  if (!btn.getAttribute('tabindex')) {
+    btn.setAttribute('tabindex', '0');
+  }
 });
