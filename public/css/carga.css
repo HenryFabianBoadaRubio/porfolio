@@ -1,5 +1,4 @@
 
-
     * {
         padding: 0;
         margin: 0;
@@ -489,7 +488,7 @@
     .descripcion__personal {
         display: flex;
         width: 35%;
-        height: 80%;
+        height: 70%;
         margin-left: 5rem;
         flex-direction: column;
         margin-top: -8rem;
@@ -502,7 +501,6 @@
      
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 10px;
-        /* border: 1px solid rgb(255, 238, 0); */
     }
     .descripcion__personal:hover {
         border-radius: 1.1rem;
@@ -520,7 +518,6 @@
         font-size: 1.3rem;
         font-weight: 300;
         line-height: 2rem;
-        margin-top: 5%;
         width: 80%;
         margin-left: 10%;
         text-align: justify;
@@ -528,6 +525,7 @@
         transform: translateY(20px);
         transition: opacity 1s ease, transform 1s ease;
         animation: fadeInText 1.5s ease forwards 1s;
+
     }
     
     @keyframes fadeInText {
@@ -542,6 +540,7 @@
         font-size: 2rem;
         color: #df8005;
         transition: color 0.3s ease;
+
     }
     
     .descripcion__personal h6:hover {
@@ -556,17 +555,18 @@
         margin-top: 5%;
         z-index: 1002;
         /* border: 1px solid red; */
+
     }
     
     .wrapper {
-        width: 200px;
-        height: 60px;
-        margin-bottom: 1rem;
+        width: 110px;
+        height: 45px;
         position: relative;
         z-index: 1;
         opacity: 0;
         transform: translateY(20px);
         animation: fadeInCircles 1.5s ease forwards 1s;
+
     }
     
     @keyframes fadeInCircles {
@@ -588,23 +588,23 @@
     }
     
     @keyframes circle7124 {
-        0% {
-            top: 60px;
-            height: 5px;
-            border-radius: 50px 50px 25px 25px;
-            transform: scaleX(1.7);
-        }
-    
-        40% {
-            height: 20px;
-            border-radius: 50%;
-            transform: scaleX(1);
-        }
-    
-        100% {
-            top: 0%;
-        }
-    }
+  0% {
+    top: 30px;       /* antes 60px — menos recorrido */
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+  }
+
+  40% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+
+  100% {
+    top: 0%;
+  }
+}
     
     .circles:nth-child(2) {
         left: 45%;
@@ -630,7 +630,9 @@
         filter: blur(1px);
         animation: shadow046 0.5s alternate infinite ease;
     }
-    
+    .shadow {
+  top: 32px;   /* antes 62px — que coincida con el nuevo tope */
+}
     @keyframes shadow046 {
         0% {
             transform: scaleX(1.5);
@@ -1807,3 +1809,485 @@ ul li a {
     height: 20px;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
+
+/* ============================================
+   RESPONSIVE - Añadir al FINAL de style.css
+   Henry Boada Portfolio
+   ============================================ */
+
+/* ---- TABLET (max 1024px) ---- */
+@media (max-width: 1024px) {
+
+  /* Primera vista */
+  .contenedor__principal {
+    margin-left: 5%;
+    width: 55%;
+  }
+
+  .contenedor__principal h2 {
+    font-size: 3.5rem;
+  }
+
+  /* Perfil */
+  .contenedor__vista__perfil {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 1rem;
+    margin-top: 6rem;
+    align-items: center;
+  }
+
+
+
+.foto__perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;    /* muestra la foto completa sin recortar */
+  object-position: center;
+
+}
+
+  .descripcion__personal {
+  width: 50%;
+  margin: 0 auto;
+  height: auto;
+  padding-bottom: 1rem;  /* antes 1.5rem */
+}
+  /* Misión y Visión */
+  .contenedor__union__misionvision {
+    width: 90%;
+    height: 100%;
+  margin: 0 auto;
+
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .contenedor__mision,
+  .contenedor__vision {
+    width: 90%;
+    justify-content: center;
+    margin-right: 2rem;
+    text-align: justify;
+
+  }
+
+  .card {
+    width: 80%;
+    margin: 1rem auto;
+
+  }
+
+  /* Skills */
+  #carousel-container {
+    width: 80vw;
+    left: 5%;
+    gap: 0 5%;
+  }
+
+  /* Servicios */
+  .carousel-container {
+    width: 90%;
+  }
+
+  /* Contacto */
+  .contenido {
+    flex-direction: column;
+  }
+
+  .info-contacto,
+  .formulario-contacto {
+    width: 100%;
+  }
+}
+
+/* ---- MÓVIL GRANDE (max 768px) ---- */
+@media (max-width: 768px) {
+ .descripcion__personal,
+  .foto__perfil,
+  .texto__acerca p,
+  .contenedor__vista__perfil,
+  .wrapper {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* FIX carrusel */
+  .carrusel__proyectos > * {
+    transform: none !important;
+    min-width: 90% !important;
+    flex-shrink: 0;
+  }
+    
+.carrusel__proyectos {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carrusel__inner {
+  display: flex;
+  transition: transform 0.4s ease;
+  width: 100%;
+}
+
+.carrusel__inner .galeria {
+  min-width: 100% !important;
+  transform: none !important;
+  flex-shrink: 0;
+}
+
+.carrusel__btn {
+  display: none; /* JS lo muestra en móvil */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 1px solid orangered;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+.prev__btn { left: 5px; }
+.next__btn { right: 5px; }
+  /* Sidebar */
+  .sidebar {
+    display: none;
+  }
+
+  /* Primera vista */
+  .contenedor__primera__vista {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contenedor__principal {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 0;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .contenedor__principal h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .contenedor__principal h2 {
+    font-size: 2.5rem;
+    width: 100%;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
+
+  .contenedor__principal h4 {
+    font-size: 1.2rem;
+  }
+
+  /* Canvas Three.js — lo ocultamos en móvil para no romper layout */
+  canvas {
+    display: none;
+  }
+
+  /* Perfil */
+  .contenedor__vista__perfil {
+    flex-direction: column;
+    height: auto;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .foto__perfil {
+    width: 65%;
+    height: 16rem;
+    margin: 0 auto;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .descripcion__personal {
+    width: 95%;
+    margin: 0 auto;
+    height: auto;
+    padding-bottom: 1.5rem;
+    opacity: 1;
+    transform: none;
+    animation: none;
+
+  }
+
+  .titulo__Descripcion {
+
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+
+  .texto__acerca p {
+    font-size: 1rem;
+    line-height: 1.7rem;
+    width: 90%;
+    margin-left: 5%;
+    opacity: 1;
+    transform: none;
+    animation: none;
+
+  }
+
+  /* Misión y Visión */
+  .contenedor__Segunda__vista {
+    height: auto;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .contenedor__union__misionvision {
+    flex-direction: column;
+  }
+
+  .contenedor__mision,
+  .contenedor__vision {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+  .contenedor__vision p,
+  .contenedor__mision p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+
+  }
+  .card {
+    width: 85%;
+    height: 22rem;
+    margin: 0.5rem auto;
+  }
+
+  .titulo__servicios__Dados h6,
+  .titulo__servicios__Dados h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .highlighted-text {
+    font-size: 2rem;
+  }
+
+  /* Skills */
+  .skills__contenedor {
+    height: auto;
+    padding: 2rem 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #carousel-container {
+    width: 95vw;
+    left: 0;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .carousel-column {
+    width: 22%;
+    min-width: 80px;
+    height: auto;
+    gap: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #info-card {
+    width: 85vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Servicios */
+  .container__servicios {
+    height: auto;
+    padding-bottom: 2rem;
+  }
+
+  .carousel-container {
+    width: 95%;
+  }
+
+  .carousel-item h3 {
+    font-size: 1.6rem;
+  }
+
+  .carousel-item p {
+    font-size: 1rem;
+  }
+
+  .carousel-item img {
+    height: 12rem;
+  }
+
+  /* Proyectos */
+  .projects-section {
+    height: auto;
+    padding: 2rem 0;
+  }
+
+  .carrusel__proyectos {
+    flex-direction: column;
+    overflow-x: hidden;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .galeria {
+    min-width: 90%;
+    max-width: 95%;
+    padding: 0;
+  }
+
+  .item {
+    height: 200px;
+  }
+
+  /* Contacto */
+  .contacto {
+    height: auto;
+    padding: 2rem 0;
+  }
+
+  .contenedor {
+    width: 95%;
+  }
+
+  .contenido {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .info-contacto,
+  .formulario-contacto {
+    width: 100%;
+  }
+
+  /* Menú hamburguesa — asegurarse que se vea */
+  .menu-container {
+    z-index: 1001;
+    left: 1rem;
+  }
+
+  .overlay {
+    z-index: 1000;
+  }
+
+  .menu a {
+    font-size: 1.5rem;
+  }
+
+  /* Ajuste del overlay de fondo */
+  #background {
+    display: none;
+  }
+}
+
+/* ---- MÓVIL PEQUEÑO (max 480px) ---- */
+@media (max-width: 480px) {
+
+  .contenedor__principal h1 {
+    font-size: 1.3rem;
+  }
+
+  .contenedor__principal h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+ 
+
+  .descripcion__personal h6 {
+    height: 100%;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+
+  }
+
+  .card {
+    width: 92%;
+    height: 20rem;
+
+  }
+
+  .front-content strong {
+    font-size: 1.4rem;
+  }
+
+  .carousel-column {
+    width: 40%;
+  }
+
+  .highlighted-text {
+    font-size: 1.6rem;
+  }
+
+  .titulo__servicios__Dados h6,
+  .titulo__servicios__Dados h2 {
+    font-size: 1.5rem;
+  }
+
+  .galeria {
+    min-width: 95%;
+  }
+
+  .item {
+    height: 180px;
+  }
+
+  .campo input,
+  .campo textarea {
+    font-size: 0.95rem;
+  }
+
+  .boton-enviar {
+    width: 100%;
+  }
+
+  /* Menú texto más chico */
+  .menu a {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+}
+
+/* ---- FIX GENERAL: evitar overflow horizontal ---- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+* {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+

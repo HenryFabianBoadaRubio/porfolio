@@ -1,122 +1,4 @@
-/* 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}/* style.css 
-body, html {
 
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    background-color:#1a191d; 
-     display: flex;
-    justify-content: center;
-    align-items: center;
-  
-}
-
-#container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* z-index: -1; 
-}
-
-#content {
-    position: relative;
-    z-index: 1;
-    color: white;
-    text-align: center;
-    padding-top: 20%;
-}
-.img__portada{
-    display: flex;
-    width: 40%;
-    height: 100%;
-    /* justify-content: center;
-    align-items: center; 
-    border: 1px solid red;
-    position: absolute;
-   right: 0;
-   top: 0;
-}
-.img__portada img{
-    object-fit: cover;
-    height: 30rem;
-    border: 1px solid red;
-    /* margin-top: 10rem; 
-    border-radius: 1rem;
-    align-items: center;
-    /* background-color: rgb(75, 71, 71); 
-}
-
-
-
-
-.box {
-    display: flex;
-  
-    margin-left: 30rem;
-    perspective: 1000px;
-    /* border: 1px solid red; 
-}
-
-.sphere {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    transform-style: preserve-3d;
-    transform: rotateX(0deg) rotateY(0deg);
-    animation: rotate 10s infinite linear;
-    /* border: 1px solid red; 
-    
-}
-
-.face {
-    position: absolute;
-    width: 170px;
-    height:170px;
-    
-    /* border: 1px solid #ccc; 
-    box-sizing: border-box;
-    border-radius: 10px;
-    /* box-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 100px rgba(255, 255, 255, 0.6); 
-    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.2) 80%);
-    
-}
-
-.front  { transform: rotateY(  0deg) translateZ(90px); }
-.back   { transform: rotateY(180deg) translateZ(90px); }
-.left   { transform: rotateY(-90deg) translateZ(90px); }
-.right  { transform: rotateY( 90deg) translateZ(90px); }
-.top    { transform: rotateX( 90deg) translateZ(90px); }
-.bottom { transform: rotateX(-90deg) translateZ(90px); }
-
-.face img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-@keyframes rotate {
-    from { transform: rotateX(0deg) rotateY(0deg); }
-    to   { transform: rotateX(360deg) rotateY(360deg); }
-}
-
-
-.nombre{
-    display: flex;
-    width: 100%;
-    /* height: 5rem; 
-    flex-direction: column;
-    border: 1px solid red;
-    /* position: absolute; 
-    /* margin-bottom: 50rem; 
-} */
 
 * {
   padding: 0;
@@ -374,3 +256,112 @@ body, html {
     }
   }
   
+  /* ============================================
+   RESPONSIVE — Añadir al FINAL de style.css
+   Pantalla de inicio — botón 3D explosión
+   ============================================ */
+
+/* ---- TABLET (max 1024px) ---- */
+@media (max-width: 1024px) {
+
+  .boton__explosion {
+    background-attachment: scroll; /* fixed causa bugs en iOS */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contenedor__botton {
+    width: 70%;
+    margin-left: 0;
+    margin-top: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mensaje {
+    width: 25%;
+    margin-left: 3rem;
+    margin-top: 8rem;
+    font-size: 1rem;
+  }
+}
+
+/* ---- MÓVIL GRANDE (max 768px) ---- */
+@media (max-width: 768px) {
+
+  .boton__explosion {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-attachment: scroll;
+    background-position: center;
+    overflow: hidden;
+  }
+
+  .contenedor__botton {
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    /* Bajamos un poco el botón para que no quede pegado arriba */
+    padding-top: 10vh;
+  }
+
+  /* El botón 3D se escala para que quepa en pantalla */
+  .button {
+    transform: rotateX(-45deg) rotateY(25deg) rotateZ(0deg) scale(0.65);
+    transform-origin: center center;
+  }
+
+  .mensaje {
+    display: none; /* En móvil ocupa espacio sin aportar mucho */
+  }
+
+  /* Texto de orientación debajo del botón */
+  .contenedor__botton::after {
+    content: "Toca el botón para ingresar";
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 8rem; /* espacio suficiente para no solaparse con el botón 3D */
+    text-shadow: 1px 1px 4px rgba(255, 69, 0, 0.8);
+    letter-spacing: 1px;
+    width: 100%;
+  }
+}
+
+/* ---- MÓVIL PEQUEÑO (max 480px) ---- */
+@media (max-width: 480px) {
+
+  .button {
+    transform: rotateX(-45deg) rotateY(25deg) rotateZ(0deg) scale(0.5);
+  }
+
+  .contenedor__botton {
+    padding-top: 8vh;
+  }
+
+  .contenedor__botton::after {
+    font-size: 0.8rem;
+    margin-top: 7rem;
+  }
+}
+
+/* ---- MÓVIL MUY PEQUEÑO (max 360px) ---- */
+@media (max-width: 360px) {
+
+  .button {
+    transform: rotateX(-45deg) rotateY(25deg) rotateZ(0deg) scale(0.42);
+  }
+
+  .contenedor__botton {
+    padding-top: 6vh;
+  }
+}
+
+/* ---- FIX GENERAL ---- */
+html, body {
+  overflow-x: hidden;
+}

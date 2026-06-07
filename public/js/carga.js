@@ -526,3 +526,38 @@ carruseles.forEach((carrusel, index) => {
     const direction = index === 0 ? -1 : 1;
     carruselContinuo(carrusel, direction);
 });
+
+/* ============================================================
+   carga.js — pantalla de inicio (index.html / boton__explosion)
+   ============================================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('myButton');
+  if (!btn) return;
+
+  function irAlPortafolio() {
+    window.location.href = './views/carga.html';
+  }
+
+  /* Click normal (escritorio) */
+  btn.addEventListener('click', irAlPortafolio);
+
+  /* Touch en móvil — el botón 3D puede no registrar click bien */
+  btn.addEventListener('touchend', function (e) {
+    e.preventDefault();
+    irAlPortafolio();
+  });
+
+  /* Accesibilidad — activar con Enter o Espacio */
+  btn.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      irAlPortafolio();
+    }
+  });
+
+  /* Asegurarse que el botón sea focusable */
+  if (!btn.getAttribute('tabindex')) {
+    btn.setAttribute('tabindex', '0');
+  }
+});
