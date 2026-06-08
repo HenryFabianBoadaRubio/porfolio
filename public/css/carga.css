@@ -497,7 +497,6 @@
         transform: translateX(-30px);
         animation: slideInLeft 1s ease forwards 0.5s;
         background-color: #33333377; 
-  
      
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 10px;
@@ -554,8 +553,7 @@
         margin-left: 5%;
         margin-top: 5%;
         z-index: 1002;
-        /* border: 1px solid red; */
-
+        justify-content: center;
     }
     
     .wrapper {
@@ -664,7 +662,7 @@
         display: flex;
         justify-content: center;
         width: 30%;
-        height: 80%;
+        height: 70%;
         overflow: hidden;
         position: relative;
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
@@ -676,7 +674,6 @@
         opacity: 0;
         transform: translateX(30px);
         animation: fadeInRight 1s ease forwards 0.5s;
-        /* border: 1px solid red; */
         z-index: 9999;
 
 
@@ -833,14 +830,14 @@
     /*SEGUNDA VISTA VISION Y MISION G4LIFE*/
     .contenedor__Segunda__vista {
         display: flex;
-        width: 100%;
+        margin: 0 auto;
+        width: 90%;
         height: 115vh;
         /* background-color: #0e0300; */
         margin-top: 3rem;
         flex-direction: column;
         /* flex-direction: column; */
         /* background-color: #293133; */
-        /* border: 1px solid red; */
     }
     .contenedor__union__misionvision{
         display: flex;
@@ -1013,11 +1010,20 @@
         border-radius: 10px;
         backdrop-filter: blur(2px);
         width: fit-content;
-        /* border: 1px solid rgb(0, 255, 42); */
         font-size: 2rem;
-        
+        justify-content: center;
     }
-    
+    .badge{
+        width: 100%;
+        justify-content: center;
+
+    }
+    .back-content{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+
+    }
     .description {
         box-shadow: 0px 0px 10px 5px #00000088;
         width: 100%;
@@ -1114,7 +1120,6 @@
         padding: 10px;
         background-color: black;
         margin-top: 10%;
-        /* border: 1px solid red;   */
         
     }
 
@@ -1134,7 +1139,6 @@
     /* VISTA DE SKILLS */
     .skills__contenedor {
         display: flex;
-        /* justify-content: center; */
         align-items: center;
         height: 120vh;
         margin: 0;
@@ -1684,6 +1688,8 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* border: 1px solid red; */
+
 }
 .formulario-contacto h5,
 .info-contacto h5 {
@@ -1727,6 +1733,7 @@ ul li a {
 .campo {
     position: relative;
     margin-bottom: 20px;
+
 }
 
 .campo input,
@@ -1741,13 +1748,13 @@ ul li a {
 }
 
 .campo label {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+   
+    margin-bottom: 10px;
     color: #ffffff;
     transition: all 0.3s ease;
     font-size: 1rem;
     pointer-events: none;
+
 }
 
 .campo input:focus + label,
@@ -1913,7 +1920,11 @@ ul li a {
     transform: none !important;
     transition: none !important;
   }
+ .redes {
+    width: 6rem;
+    justify-content: space-between;
 
+}
   /* FIX carrusel */
   .carrusel__proyectos > * {
     transform: none !important;
@@ -2032,7 +2043,7 @@ ul li a {
     height: auto;
     justify-content: space-between;
     align-items: center;
-    
+
   }
 
   .texto__acerca p {
@@ -2048,6 +2059,7 @@ ul li a {
 
   /* Misión y Visión */
   .contenedor__Segunda__vista {
+    width: 100%;
     height: auto;
     margin-top: 1rem;
     padding-bottom: 2rem;
@@ -2055,6 +2067,7 @@ ul li a {
 
   .contenedor__union__misionvision {
     flex-direction: column;
+
   }
 
   .contenedor__mision,
@@ -2115,7 +2128,8 @@ ul li a {
   #info-card {
     width: 85vw;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-17%);
+
   }
 
   /* Servicios */
