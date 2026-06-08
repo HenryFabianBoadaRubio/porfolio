@@ -296,22 +296,26 @@
     background-attachment: scroll;
     background-position: center;
     overflow: hidden;
+
   }
 
   .contenedor__botton {
     width: 100%;
-    margin: 0;
     justify-content: center;
     align-items: center;
     /* Bajamos un poco el botón para que no quede pegado arriba */
     padding-top: 10vh;
+
   }
 
   /* El botón 3D se escala para que quepa en pantalla */
-  .button {
-    transform: rotateX(-45deg) rotateY(25deg) rotateZ(0deg) scale(0.65);
-    transform-origin: center center;
-  }
+ .button {
+  transform: rotateX(-45deg) rotateY(25deg) scale(0.65);
+  position: relative;
+  left: 50%;
+  transform-origin: center center;
+  margin-top: -4rem;
+}
 
   .mensaje {
     display: none; /* En móvil ocupa espacio sin aportar mucho */
